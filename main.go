@@ -11,6 +11,8 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
+	"github.com/uptrace/bun"
+	"github.com/uptrace/bun/dialect/mysqldialect"
 
 	_ "github.com/go-sql-driver/mysql"
 
@@ -70,8 +72,10 @@ func main() {
 		}
 	}()
 
+	db := bun.NewDB(dbConn, mysqldialect.New())
+
 	app := fiber.New()
-	accountRepo := _accountRepo.NewAccountRepository(dbConn)
+	accountRepo := _accountRepo.NewAccountRepository(db)
 	ctm, _ := strconv.Atoi(ctxTimeOut)
 	timeoutContext := time.Duration(ctm) * time.Second
 	accountUsecase := _accountUsecase.NewAccountUsecase(accountRepo, timeoutContext)
