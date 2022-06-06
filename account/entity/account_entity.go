@@ -7,5 +7,5 @@ type Account struct {
 	Email         string `json:"email"`
 	PhoneNumber   string `json:"phoneNumber"`
 	OutletsNumber int64  `json:"outletNumber"`
-	BusinessType  string `json:"businessType"`
+	BusinessType  int    `json:"businessType"`
 }

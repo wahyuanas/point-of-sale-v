@@ -7,7 +7,7 @@ type SignUpAccount struct {
 	PhoneNumber   string
 	Email         string
 	Address       string
-	BusinessType  string
+	BusinessType  int
 	OutletsNumber int64
 }
 

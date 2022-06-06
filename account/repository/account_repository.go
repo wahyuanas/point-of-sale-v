@@ -25,7 +25,7 @@ func (a *AccountRepository) Store(ctx context.Context, cmd *objectvalue.SignUpAc
 		return nil, http.StatusNotAcceptable, err
 	}
 
-	res, err := stmt.ExecContext(ctx, cmd.CompanyName, cmd.PhoneNumber, cmd.Email, cmd.Address, "1", cmd.OutletsNumber)
+	res, err := stmt.ExecContext(ctx, cmd.CompanyName, cmd.PhoneNumber, cmd.Email, cmd.Address, cmd.BusinessType, cmd.OutletsNumber)
 
 	if err != nil {
 		return nil, http.StatusNotAcceptable, err
