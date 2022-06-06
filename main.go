@@ -23,14 +23,6 @@ import (
 	_accountHandler "github.com/wahyuanas/point-of-sale-v/account/api/handler"
 )
 
-func helloWorld(c *fiber.Ctx) error {
-	return c.SendString("OK")
-}
-
-func setupRoutes(app *fiber.App) {
-	app.Get("/", helloWorld)
-}
-
 func main() {
 
 	if err := godotenv.Load(); err != nil {
@@ -45,6 +37,8 @@ func main() {
 	dbPass := os.Getenv("DB_PASSWORD")
 	dbName := os.Getenv("DB_NAME")
 	dbDriver := os.Getenv("DB_DRIVER")
+	appPort := os.Getenv("APP_PORT")
+
 	ctxTimeOut := os.Getenv("CONTEXT_TIME_OUT")
 	connection := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPass, dbHost, dbPort, dbName)
 
@@ -80,5 +74,5 @@ func main() {
 	timeoutContext := time.Duration(ctm) * time.Second
 	accountUsecase := _accountUsecase.NewAccountUsecase(accountRepo, timeoutContext)
 	_accountHandler.NewAccountHandler(app, accountUsecase)
-	log.Fatal(app.Listen(":3000"))
+	log.Fatal(app.Listen(":" + appPort))
 }
