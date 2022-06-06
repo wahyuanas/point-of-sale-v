@@ -1,6 +1,6 @@
 # point-of-sale-v
 
-End Point http://127.0.0.1:3000/account 
+End Point Sign Up Account http://127.0.0.1:3000/account 
 
 Method POST
 
