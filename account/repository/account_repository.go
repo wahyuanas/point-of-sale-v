@@ -20,10 +20,11 @@ func NewAccountRepository(db *bun.DB) account.AccountRepository {
 
 func (a *AccountRepository) Store(ctx context.Context, cmd *objectvalue.SignUpAccount) (*entity.Account, interface{}, error) {
 
-	ec := entity.Account{CompanyName: cmd.CompanyName, PhoneNumber: cmd.PhoneNumber, Email: cmd.Email, Address: cmd.Address, BusinessType: cmd.BusinessType, OutletsNumber: cmd.OutletsNumber}
-	_, err := a.DB.NewInsert().Model(&ec).Exec(ctx)
 	// query := `INSERT tbl_account SET company_name=? , phone_number=? , email=?, address=? , business_type=? , outlets_number=?`
 	// stmt, err := a.DB.PrepareContext(ctx, query)
+	ec := entity.Account{CompanyName: cmd.CompanyName, PhoneNumber: cmd.PhoneNumber, Email: cmd.Email, Address: cmd.Address, BusinessType: cmd.BusinessType, OutletsNumber: cmd.OutletsNumber}
+	_, err := a.DB.NewInsert().Model(&ec).Exec(ctx)
+
 	if err != nil {
 		return nil, http.StatusNotAcceptable, err
 	}
