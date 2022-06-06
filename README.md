@@ -1,6 +1,6 @@
 # point-of-sale-v
 
-End point http://127.0.0.1:3000/account 
+End Point http://127.0.0.1:3000/account 
 
 Method POST
 
