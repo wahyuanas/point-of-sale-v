@@ -9,7 +9,7 @@ type SignUpAccountResponse struct {
 
 type SignInAccountResponse struct {
 	CommonResponse
-	Account entity.Account
+	Account *entity.Account
 }
 
 type SignOutAccountResponse struct {
@@ -19,7 +19,7 @@ type SignOutAccountResponse struct {
 
 type UpdateAccountResponse struct {
 	CommonResponse
-	Account entity.Account
+	Account *entity.Account
 }
 
 type DeleteAccountResponse struct {
@@ -29,9 +29,9 @@ type DeleteAccountResponse struct {
 
 type GetAccountAccountResponse struct {
 	CommonResponse
-	Account entity.Account
+	Account *entity.Account
 }
 
 type GetAccountsAccountResponse struct {
-	User []entity.Account
+	User []*entity.Account
 }
