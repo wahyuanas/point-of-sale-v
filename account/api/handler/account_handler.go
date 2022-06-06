@@ -33,7 +33,7 @@ func (a *AccountHandler) SignUp(c *fiber.Ctx) error {
 			},
 			Account: nil,
 		}
-		return c.Status(400).JSON(r)
+		return c.Status(422).JSON(r)
 	}
 
 	if err := o.Validate(); err != nil {
