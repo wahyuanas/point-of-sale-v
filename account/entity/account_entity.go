@@ -6,6 +6,6 @@ type Account struct {
 	Address       string `json:"address"`
 	Email         string `json:"email"`
 	PhoneNumber   string `json:"phoneNumber"`
-	OutletsNumber int64  `json:"outletNumber"`
+	OutletsNumber int    `json:"outletNumber"`
 	BusinessType  int    `json:"businessType"`
 }
