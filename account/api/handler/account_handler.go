@@ -31,8 +31,8 @@ func (a *AccountHandler) SignUp(c *fiber.Ctx) error {
 				Code:    http.StatusUnprocessableEntity,
 				Message: err.Error(),
 			},
-			Account: nil,
 		}
+		r.Data.Account = nil
 		return c.Status(422).JSON(r)
 	}
 
@@ -43,8 +43,8 @@ func (a *AccountHandler) SignUp(c *fiber.Ctx) error {
 				Code:    http.StatusBadRequest,
 				Message: err.Error(),
 			},
-			Account: nil,
 		}
+		r.Data.Account = nil
 		return c.Status(400).JSON(r)
 
 	}

@@ -4,12 +4,16 @@ import "github.com/wahyuanas/point-of-sale-v/account/entity"
 
 type SignUpAccountResponse struct {
 	CommonResponse
-	Account *entity.Account
+	DataResponse[struct {
+		Account *entity.Account `json:"account"`
+	}]
 }
 
 type SignInAccountResponse struct {
 	CommonResponse
-	Account *entity.Account
+	DataResponse[struct {
+		Account *entity.Account `json:"account"`
+	}]
 }
 
 type SignOutAccountResponse struct {
@@ -19,7 +23,9 @@ type SignOutAccountResponse struct {
 
 type UpdateAccountResponse struct {
 	CommonResponse
-	Account *entity.Account
+	DataResponse[struct {
+		Account *entity.Account `json:"account"`
+	}]
 }
 
 type DeleteAccountResponse struct {
@@ -29,9 +35,14 @@ type DeleteAccountResponse struct {
 
 type GetAccountAccountResponse struct {
 	CommonResponse
-	Account *entity.Account
+	DataResponse[struct {
+		Account *entity.Account `json:"account"`
+	}]
 }
 
 type GetAccountsAccountResponse struct {
-	User []*entity.Account
+	CommonResponse
+	DataResponse[struct {
+		Accounts []*entity.Account `json:"accounts"`
+	}]
 }

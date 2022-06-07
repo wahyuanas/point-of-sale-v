@@ -28,21 +28,25 @@ func (au *AccountUsecase) SignUp(ctx context.Context, cmd *objectvalue.SignUpAcc
 
 	a, i, err := au.accountRepo.Store(ctx, cmd)
 	if err != nil {
-		return &response.SignUpAccountResponse{
+		r := &response.SignUpAccountResponse{
 			CommonResponse: response.CommonResponse{
 				Status:  false,
 				Code:    i.(int),
 				Message: err.Error(),
 			},
-			Account: nil,
 		}
+		r.Data.Account = nil
+
+		return r
 	}
-	return &response.SignUpAccountResponse{
+	r := &response.SignUpAccountResponse{
 		CommonResponse: response.CommonResponse{
 			Status:  true,
 			Code:    i.(int),
 			Message: "Success",
-		},
-		Account: a,
-	}
+		}}
+	r.Data.Account = a
+
+	return r
+
 }

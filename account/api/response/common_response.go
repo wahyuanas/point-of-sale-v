@@ -1,7 +1,7 @@
 package response
 
 type CommonResponse struct {
-	Status  bool
-	Code    int
-	Message string
+	Status  bool   `json:"status"`
+	Code    int    `json:"code"`
+	Message string `json:"message"`
 }
