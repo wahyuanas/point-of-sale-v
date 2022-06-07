@@ -8,5 +8,5 @@ import (
 )
 
 type AccountUsecase interface {
-	SignUp(ctx context.Context, cmd *objectvalue.SignUpAccount) *response.SignUpAccountResponse
+	SignUp(ctx context.Context, cmd *objectvalue.SignUp) *response.SignUpAccountResponse
 }

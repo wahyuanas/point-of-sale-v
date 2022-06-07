@@ -5,7 +5,7 @@ import (
 	"github.com/go-ozzo/ozzo-validation/is"
 )
 
-type SignUpAccount struct {
+type SignUp struct {
 	CompanyName   string
 	PhoneNumber   string
 	Email         string
@@ -14,7 +14,7 @@ type SignUpAccount struct {
 	OutletsNumber int
 }
 
-func (p SignUpAccount) Validate() error {
+func (p SignUp) Validate() error {
 	return validation.ValidateStruct(&p,
 		validation.Field(&p.CompanyName, validation.Required, validation.Length(1, 0)),
 		validation.Field(&p.PhoneNumber, validation.Required, validation.Length(1, 0)),

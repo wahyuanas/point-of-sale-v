@@ -8,5 +8,5 @@ import (
 )
 
 type AccountRepository interface {
-	Store(ctx context.Context, cmd *objectvalue.SignUpAccount) (*entity.Account, interface{}, error)
+	Store(ctx context.Context, cmd *objectvalue.SignUp) (*entity.Account, interface{}, error)
 }

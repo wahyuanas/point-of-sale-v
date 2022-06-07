@@ -18,7 +18,7 @@ func NewAccountRepository(db *bun.DB) account.AccountRepository {
 	return &AccountRepository{DB: db}
 }
 
-func (a *AccountRepository) Store(ctx context.Context, cmd *objectvalue.SignUpAccount) (*entity.Account, interface{}, error) {
+func (a *AccountRepository) Store(ctx context.Context, cmd *objectvalue.SignUp) (*entity.Account, interface{}, error) {
 
 	// query := `INSERT tbl_account SET company_name=? , phone_number=? , email=?, address=? , business_type=? , outlets_number=?`
 	// stmt, err := a.DB.PrepareContext(ctx, query)

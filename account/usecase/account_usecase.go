@@ -21,7 +21,7 @@ func NewAccountUsecase(a account.AccountRepository, t time.Duration) account.Acc
 	}
 }
 
-func (au *AccountUsecase) SignUp(ctx context.Context, cmd *objectvalue.SignUpAccount) *response.SignUpAccountResponse {
+func (au *AccountUsecase) SignUp(ctx context.Context, cmd *objectvalue.SignUp) *response.SignUpAccountResponse {
 
 	ctx, cancel := context.WithTimeout(ctx, au.contextTimeout)
 	defer cancel()

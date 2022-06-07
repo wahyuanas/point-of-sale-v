@@ -22,7 +22,7 @@ func NewAccountHandler(app *fiber.App, a account.AccountUsecase) {
 
 func (a *AccountHandler) SignUp(c *fiber.Ctx) error {
 
-	var o objectvalue.SignUpAccount
+	var o objectvalue.SignUp
 
 	if err := c.BodyParser(&o); err != nil {
 		r := &response.SignUpAccountResponse{
