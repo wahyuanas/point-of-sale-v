@@ -33,7 +33,7 @@ func (a *AccountHandler) SignUp(c *fiber.Ctx) error {
 			},
 		}
 		r.Data.Account = nil
-		return c.Status(422).JSON(r)
+		return c.Status(http.StatusUnprocessableEntity).JSON(r)
 	}
 
 	if err := o.Validate(); err != nil {
@@ -45,7 +45,7 @@ func (a *AccountHandler) SignUp(c *fiber.Ctx) error {
 			},
 		}
 		r.Data.Account = nil
-		return c.Status(400).JSON(r)
+		return c.Status(http.StatusBadRequest).JSON(r)
 
 	}
 	ctx := c.Context()
