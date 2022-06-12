@@ -22,7 +22,12 @@ func (a *AccountRepository) Store(ctx context.Context, cmd *objectvalue.SignUp) 
 
 	// query := `INSERT tbl_account SET company_name=? , phone_number=? , email=?, address=? , business_type=? , outlets_number=?`
 	// stmt, err := a.DB.PrepareContext(ctx, query)
-	ec := entity.Account{CompanyName: cmd.CompanyName, PhoneNumber: cmd.PhoneNumber, Email: cmd.Email, Address: cmd.Address, BusinessType: cmd.BusinessType, OutletsNumber: cmd.OutletsNumber}
+	// if cmd.SubBusinessType.Int64{
+
+	// } {
+
+	//}
+	ec := entity.Account{CompanyName: cmd.CompanyName, PhoneNumber: cmd.PhoneNumber, Email: cmd.Email, Address: cmd.Address, BusinessType: cmd.BusinessType, MainBusinessType: cmd.MainBusinessType, CoreBusinessType: cmd.CoreBusinessType, OutletsNumber: cmd.OutletsNumber}
 	_, err := a.DB.NewInsert().Model(&ec).Exec(ctx)
 
 	if err != nil {
